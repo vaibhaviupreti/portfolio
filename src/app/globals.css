@@ -1,3 +1,8 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+/* @import './base.css'; */
+@import 'tailwindcss/utilities';
+
 /* styles/globals.css */
 
 /* Apply a CSS reset to ensure consistent default styles */
@@ -75,9 +80,17 @@ td {
 
 /* Set the background color for the entire app */
 body {
-    background-color: #ffffff; /* Example background color (white) */
-    font-family: Arial, sans-serif; /* Example font stack */
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
   }
-  
-  /* Add additional global styles as needed */
-  
+
+/* hero section css */
+.bg-hero{
+  /* position: relative; */
+  width: 100%;
+  height: 100%; 
+  background-image: url('/images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat; 
+}
