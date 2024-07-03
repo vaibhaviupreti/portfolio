@@ -8,7 +8,7 @@ const Navbar = () => {
       {/* Logo */}
       <div className="flex items-center">
         <Link href="/">
-          <a className="text-2xl font-bold">Logo</a>
+          <span className="text-2xl font-bold cursor-pointer">Logo</span>
         </Link>
       </div>
 
@@ -16,22 +16,22 @@ const Navbar = () => {
       <ul className="hidden md:flex space-x-8">
         <li>
           <Link href="/home">
-            <a className="text-lg hover:text-gray-700">Home</a>
+            <span className="text-lg hover:text-gray-700 cursor-pointer">Home</span>
           </Link>
         </li>
         <li>
           <Link href="/about">
-            <a className="text-lg hover:text-gray-700">About</a>
+            <span className="text-lg hover:text-gray-700 cursor-pointer">About</span>
           </Link>
         </li>
         <li>
           <Link href="/services">
-            <a className="text-lg hover:text-gray-700">Services</a>
+            <span className="text-lg hover:text-gray-700 cursor-pointer">Services</span>
           </Link>
         </li>
         <li>
           <Link href="/contact">
-            <a className="text-lg hover:text-gray-700">Contact</a>
+            <span className="text-lg hover:text-gray-700 cursor-pointer">Contact</span>
           </Link>
         </li>
       </ul>
