@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <nav className="container mx-auto py-4 flex justify-between items-center">
+    <nav className="container mx-auto py-7 flex justify-between items-center">
       {/* Logo */}
       <div className="flex items-center">
         <Link href="/">
