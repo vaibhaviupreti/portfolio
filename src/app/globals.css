@@ -16,7 +16,7 @@ body {
 .solidCircle {
   width: 6px;
   height: 6px;
-  background-color: black;
+  background-color: #FB503B;
   border-radius: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -27,13 +27,13 @@ body {
 .hollowCircle {
   width: 30px;
   height: 30px;
-  border: 2px solid rgb(24, 166, 249);
+  border: 2px solid #FB503B;
   border-radius: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 9999;
-  transition: transform 0.1s ease-out;
+  /* transition: transform 0.1s ease-out; */
 }
 
 
