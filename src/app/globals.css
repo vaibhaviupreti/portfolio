@@ -9,9 +9,9 @@
   padding: 0 20px;
 }
 /* to hide the default cursor */
-body {
+/* body {
   cursor: none;
-}
+} */
 /* cursor css */
 .solidCircle {
   width: 6px;
@@ -22,21 +22,34 @@ body {
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 10000;
+  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
 }
 
 .hollowCircle {
   width: 30px;
   height: 30px;
-  border: 2px solid #FB503B;
+  border: 1.5px solid #FB503B;
   border-radius: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 9999;
   /* transition: transform 0.1s ease-out; */
+  transition: width 0.2s ease, height 0.2s ease, border-width 0.2s ease, background-color 0.2s ease;
 }
 
+.solidCircle.hovered {
+  width: 70px;
+  height: 70px;
+  background-color: #FB503B88; /* Same color as the ring */
+}
 
+.hollowCircle.hovered {
+  width: 0;
+  height: 0;
+  border-width: 0;
+  background-color: transparent;
+}
 /* styles/globals.css */
 
 /* Apply a CSS reset to ensure consistent default styles */

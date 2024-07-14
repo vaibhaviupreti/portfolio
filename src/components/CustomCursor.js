@@ -1,6 +1,6 @@
-"use client"
-import {useEffect, useRef } from 'react';
-// import styles from './CustomCursor.module.css';
+"use client";
+
+import { useEffect, useRef } from 'react';
 
 const CustomCursor = () => {
   const solidCircleRef = useRef(null);
@@ -13,6 +13,14 @@ const CustomCursor = () => {
   useEffect(() => {
     const handleMouseMove = (e) => {
       mousePos.current = { x: e.clientX, y: e.clientY };
+
+      if (solidCircleRef.current) {
+        solidCircleRef.current.style.left = `${mousePos.current.x}px`;
+        solidCircleRef.current.style.top = `${mousePos.current.y}px`;
+      }
+
+      // Update the solidCirclePos to the mouse position for the hollow circle to follow
+      solidCirclePos.current = { x: e.clientX, y: e.clientY };
     };
 
     document.addEventListener('mousemove', handleMouseMove);
@@ -24,16 +32,8 @@ const CustomCursor = () => {
 
   useEffect(() => {
     const animate = () => {
-      solidCirclePos.current.x += (mousePos.current.x - solidCirclePos.current.x) * 0.15;
-      solidCirclePos.current.y += (mousePos.current.y - solidCirclePos.current.y) * 0.15;
-
-      hollowCirclePos.current.x += (solidCirclePos.current.x - hollowCirclePos.current.x) * 0.2;
-      hollowCirclePos.current.y += (solidCirclePos.current.y - hollowCirclePos.current.y) * 0.2;
-
-      if (solidCircleRef.current) {
-        solidCircleRef.current.style.left = `${solidCirclePos.current.x}px`;
-        solidCircleRef.current.style.top = `${solidCirclePos.current.y}px`;
-      }
+      hollowCirclePos.current.x += (solidCirclePos.current.x - hollowCirclePos.current.x) * 0.6;
+      hollowCirclePos.current.y += (solidCirclePos.current.y - hollowCirclePos.current.y) * 0.6;
 
       if (hollowCircleRef.current) {
         hollowCircleRef.current.style.left = `${hollowCirclePos.current.x}px`;
@@ -46,28 +46,29 @@ const CustomCursor = () => {
     animate();
   }, []);
 
+  useEffect(() => {
+    const handleMouseOver = (e) => {
+      if (e.target.tagName === 'BUTTON') {
+        solidCircleRef.current.classList.add('hovered');
+        hollowCircleRef.current.classList.add('hovered');
+      }
+    };
 
-//   useEffect(() => {
-//     const handleMouseMove = (e) => {
-//       const { clientX, clientY } = e;
+    const handleMouseOut = (e) => {
+      if (e.target.tagName === 'BUTTON') {
+        solidCircleRef.current.classList.remove('hovered');
+        hollowCircleRef.current.classList.remove('hovered');
+      }
+    };
 
-//       if (solidCircleRef.current) {
-//         solidCircleRef.current.style.left = `${clientX}px`;
-//         solidCircleRef.current.style.top = `${clientY}px`;
-//       }
+    document.addEventListener('mouseover', handleMouseOver);
+    document.addEventListener('mouseout', handleMouseOut);
 
-//       if (hollowCircleRef.current) {
-//         hollowCircleRef.current.style.left = `${clientX}px`;
-//         hollowCircleRef.current.style.top = `${clientY}px`;
-//       }
-//     };
-
-//     document.addEventListener('mousemove', handleMouseMove);
-
-//     return () => {
-//       document.removeEventListener('mousemove', handleMouseMove);
-//     };
-//   }, []);
+    return () => {
+      document.removeEventListener('mouseover', handleMouseOver);
+      document.removeEventListener('mouseout', handleMouseOut);
+    };
+  }, []);
 
   return (
     <>
