@@ -8,6 +8,34 @@
   @apply max-w-[1070px] mx-auto px-6 xl:px-0;
   padding: 0 20px;
 }
+/* to hide the default cursor */
+body {
+  cursor: none;
+}
+/* cursor css */
+.solidCircle {
+  width: 6px;
+  height: 6px;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.hollowCircle {
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgb(24, 166, 249);
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease-out;
+}
+
 
 /* styles/globals.css */
 
