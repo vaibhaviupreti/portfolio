@@ -11,6 +11,7 @@
 // export default Hero
 
 // components/Hero.js
+'use client'; 
 import React from 'react';
 
 const Hero = () => {
