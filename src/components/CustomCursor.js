@@ -48,14 +48,14 @@ const CustomCursor = () => {
 
   useEffect(() => {
     const handleMouseOver = (e) => {
-      if (e.target.tagName === 'BUTTON') {
+      if (e.target.tagName === 'BUTTON' || e.target.tagName === 'a') {
         solidCircleRef.current.classList.add('hovered');
         hollowCircleRef.current.classList.add('hovered');
       }
     };
 
     const handleMouseOut = (e) => {
-      if (e.target.tagName === 'BUTTON') {
+      if (e.target.tagName === 'BUTTON'|| e.target.tagName === 'a') {
         solidCircleRef.current.classList.remove('hovered');
         hollowCircleRef.current.classList.remove('hovered');
       }

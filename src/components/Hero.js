@@ -1,11 +1,27 @@
-import React from 'react'
+// import React from 'react'
+
+// const Hero = () => {
+//   return (
+//     <section className='bg-hero h-screen'>
+//       <div className='container'>hero section</div>
+//     </section>
+//   )
+// }
+
+// export default Hero
+
+// components/Hero.js
+import React from 'react';
 
 const Hero = () => {
   return (
-    <div className='container bg-hero w-full'>
-      <div className='w-full'>hero section</div>
-    </div>
-  )
-}
+    <section className='bg-hero h-screen flex items-center justify-center h-screen'>
+      <div className='container mx-auto text-center'>
+        <h1 className="text-4xl font-bold text-white mb-4">Hero Section</h1>
+        <p className="text-lg text-white">Your hero section content goes here.</p>
+      </div>
+    </section>
+  );
+};
 
-export default Hero
+export default Hero;
